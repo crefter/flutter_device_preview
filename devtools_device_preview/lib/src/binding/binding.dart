@@ -110,17 +110,16 @@ class PreviewWidgetsFlutterBinding extends BindingBase
   }
 
   @override
-  ui.SingletonFlutterWindow get window =>
-      _previewWindow ??= PreviewWindow(super.window);
+  ui.SingletonFlutterWindow get window => PreviewWindow(super.window);
 
   @override
-  void initRenderView() {
-    super.initRenderView();
-    renderView = PreviewRenderView(
-      configuration: createViewConfiguration(),
+  void addRenderView(RenderView view) {
+    final customRenderView = PreviewRenderView(
+      configuration: createViewConfigurationFor(view),
       window: window,
     );
     renderView.prepareInitialFrame();
+    super.addRenderView(customRenderView);
   }
 
   @override

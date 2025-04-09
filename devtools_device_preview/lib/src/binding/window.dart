@@ -81,13 +81,6 @@ class PreviewWindow implements ui.SingletonFlutterWindow {
       parent.onSemanticsEnabledChanged = value;
 
   @override
-  ui.SemanticsActionCallback? get onSemanticsAction => parent.onSemanticsAction;
-
-  @override
-  set onSemanticsAction(ui.SemanticsActionCallback? value) =>
-      parent.onSemanticsAction = value;
-
-  @override
   ui.VoidCallback? get onTextScaleFactorChanged =>
       parent.onTextScaleFactorChanged;
 
@@ -169,14 +162,7 @@ class PreviewWindow implements ui.SingletonFlutterWindow {
     onMetricsChanged?.call();
   }
 
-  ui.Rect? _previewPhysicalGeometry;
-
-  @override
-  ui.Rect get physicalGeometry =>
-      _previewPhysicalGeometry ?? parent.physicalGeometry;
-
   set physicalGeometry(ui.Rect? value) {
-    _previewPhysicalGeometry = value;
     onMetricsChanged?.call();
   }
 
@@ -205,7 +191,7 @@ class PreviewWindow implements ui.SingletonFlutterWindow {
   ui.PlatformDispatcher get platformDispatcher => parent.platformDispatcher;
 
   @override
-  void render(ui.Scene scene) {
+  void render(ui.Scene scene, {Size? size}) {
     parent.render(scene);
   }
 
@@ -246,9 +232,6 @@ class PreviewWindow implements ui.SingletonFlutterWindow {
       parent.updateSemantics(update);
 
   @override
-  ui.ViewConfiguration get viewConfiguration => parent.viewConfiguration;
-
-  @override
   ui.WindowPadding get viewInsets => parent.viewInsets;
 
   ui.WindowPadding? _previewViewPadding;
@@ -278,6 +261,26 @@ class PreviewWindow implements ui.SingletonFlutterWindow {
 
   @override
   String? get systemFontFamily => parent.systemFontFamily;
+
+  @override
+  ui.Display get display => parent.display;
+
+  @override
+  ui.GestureSettings get gestureSettings => parent.gestureSettings;
+
+  @override
+  bool get nativeSpellCheckServiceDefined =>
+      parent.nativeSpellCheckServiceDefined;
+
+  @override
+  ui.ViewConstraints get physicalConstraints => parent.physicalConstraints;
+
+  @override
+  bool get supportsShowingSystemContextMenu =>
+      parent.supportsShowingSystemContextMenu;
+
+  @override
+  int get viewId => parent.viewId;
 }
 
 class PreviewWindowPadding implements ui.WindowPadding {

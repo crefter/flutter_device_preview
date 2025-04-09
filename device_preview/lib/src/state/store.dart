@@ -1,8 +1,11 @@
 import 'dart:async';
+
+import 'package:device_frame/device_frame.dart';
 import 'package:flutter/widgets.dart';
+
+import '../../device_preview.dart' as device_preview;
 import '../../device_preview.dart';
 import 'custom_device.dart';
-import '../../device_preview.dart' as device_preview;
 
 /// The store is a container for the current [state] of the device preview.
 ///

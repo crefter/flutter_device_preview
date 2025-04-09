@@ -14,7 +14,7 @@ class PreviewRenderView extends RenderView {
   }) : super(
           child: child,
           configuration: configuration,
-          window: window,
+          view: window,
         );
 
   DeviceInfo? _device;

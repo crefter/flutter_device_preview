@@ -1,6 +1,6 @@
+import 'package:device_frame/device_frame.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-
 
 /// A device info that can be customized at runtime to update
 /// its current preview.
